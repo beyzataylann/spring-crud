@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        table th, table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table th, table td {
+            text-align: center;
+        }
+
+        table td:first-child, table th:first-child {
+            width: 10%;
+        }
+
+        table td:nth-child(2), table th:nth-child(2) {
+            width: 25%;
+        }
+
+        table td:nth-child(3), table th:nth-child(3),
+        table td:nth-child(4), table th:nth-child(4) {
+            width: 15%;
+        }
+
+        table td:nth-child(5), table th:nth-child(5),
+        table td:nth-child(6), table th:nth-child(6) {
+            width: 10%;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .action-btn {
+            color: red;
+            cursor: pointer;
+        }
+
+        .create-btn {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .create-btn:hover {
+            background-color: #45a049;
+        }
+
+        
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            width: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <h1>Düzenle </h1>
+    <form th:action="@{/products/update/{id}(id=${product.id})}" method="post" th:object="${product}">
+        <input type="hidden" th:field="*{id}" /> 
+        
+        <label for="productName">Ürün Adı:</label>
+        <input type="text" id="productName" th:field="*{productName}" required>
+        <br>
+
+        <label for="price">Fiyat:</label>
+        <input type="number" id="price" th:field="*{price}" required>
+        <br>
+
+        <label for="quantity">Stok Miktarı:</label>
+        <input type="number" id="quantity" th:field="*{quantity}" required>
+        <br>
+
+        <label for="expirationDate">Tarih:</label>
+        <input type="date" id="expirationDate" th:field="*{expirationDate}" required>
+        <br>
+
+        <label for="deliveryPersonName">Teslim Alan Kişi:</label>
+        <input type="text" id="deliveryPersonName" th:field="*{deliveryPersonName}" required>
+        <br>
+
+        <button type="submit">Değişiklikleri Kaydet</button>
+    </form>
+
+</body>
+</html>

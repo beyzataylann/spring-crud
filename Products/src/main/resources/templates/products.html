@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        table th, table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table th, table td {
+            text-align: center;
+        }
+
+        table td:first-child, table th:first-child {
+            width: 10%;
+        }
+
+        table td:nth-child(2), table th:nth-child(2) {
+            width: 25%;
+        }
+
+        table td:nth-child(3), table th:nth-child(3),
+        table td:nth-child(4), table th:nth-child(4) {
+            width: 15%;
+        }
+
+        table td:nth-child(5), table th:nth-child(5),
+        table td:nth-child(6), table th:nth-child(6) {
+            width: 10%;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #ddd;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .create-btn {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .create-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ÜRÜNLER</h1>
+    <a href="/products/create" class="create-btn">ÜRÜNLER</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Stok Miktarı</th>
+            <th>Tarih</th>
+            <th>Teslim Alan Kişi</th>
+            <th> </th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="${product.expirationDate}"></td>
+            <td th:text="${product.deliveryPersonName}"></td>
+            <td>
+                <!-- Delete Form with confirmation -->
+                <form th:action="@{/products/delete/{id}(id=${product.id})}" method="post" onsubmit="return confirm('Ürünü silmek istiyor musunuz?');">
+                    <input type="submit" value="Delete" class="button" />
+                </form>
+
+                <!-- Edit Button -->
+                <a th:href="@{/products/edit/{id}(id=${product.id})}" class="button">Edit</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
