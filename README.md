@@ -75,7 +75,7 @@ Displays all products in a tabular format.
 
 
 Form to add a new product.
-![Ekran görüntüsü 2024-12-11 021138](https://github.com/user-attachments/assets/0accab8e-8d9c-47ef-89de-bb0dd7b8b58a)
+![image](https://github.com/user-attachments/assets/6c7ec2bf-f347-4f10-8c70-8a1810d8ab9b)
 
 
 Edit Product Form
