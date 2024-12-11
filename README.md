@@ -78,8 +78,7 @@ Form to add a new product.
 ![image](https://github.com/user-attachments/assets/6c7ec2bf-f347-4f10-8c70-8a1810d8ab9b)
 
 
-Edit Product Form
-![Ekran görüntüsü 2024-12-11 030126](https://github.com/user-attachments/assets/1b510b98-73c5-4f68-85c7-e7b5d8252a90)
+
 
 Pre-filled form for updating a product
 ![image](https://github.com/user-attachments/assets/2edb48f1-170c-4015-a05f-f4194f61cf9b)
